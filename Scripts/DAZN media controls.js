@@ -5,7 +5,7 @@
 // @author       Tobias
 // @match        *.dazn.com/*
 // @license      GNU
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/GreyGooseVX/Greasy-Fork-Scripts
 // ==/UserScript==
 
 function backward() {

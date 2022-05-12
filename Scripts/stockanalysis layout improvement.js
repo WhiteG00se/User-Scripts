@@ -5,7 +5,7 @@
 // @author       Tobias
 // @match        stockanalysis.com/stocks/*/financials*
 // @license      GNU
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/GreyGooseVX/Greasy-Fork-Scripts
 // ==/UserScript==
  
 document.getElementsByClassName("overflow-x-auto border border-gray-300")[0].className=""

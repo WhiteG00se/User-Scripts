@@ -5,7 +5,7 @@
 // @author       Tobias
 // @match        https://TEMPLATE.de/TEMPLATE/TEMPLATE.jspa*
 // @license      GNU
-// @namespace    http://tampermonkey.net/
+// @namespace    https://github.com/GreyGooseVX/Greasy-Fork-Scripts
 // ==/UserScript==
  
 console.log("TEMPLATE")
