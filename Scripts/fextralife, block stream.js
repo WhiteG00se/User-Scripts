@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         fextralife, block stream
 // @description  block the twitch stream on fextralife
-// @version      1.1
+// @version      1.2
 // @author       Tobias
 // @match        *.wiki.fextralife.com/*
 // @license      GNU
