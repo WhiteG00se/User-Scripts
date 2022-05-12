@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         TEMPLATE
-// @description  TEMPLATE
+// @description  TEMPLATE1
 // @version      1.0
 // @author       Tobias
 // @match        https://TEMPLATE.de/TEMPLATE/TEMPLATE.jspa*
