@@ -7,6 +7,7 @@
 // @license      GNU
 // @namespace    https://github.com/GreyGooseVX/Greasy-Fork-Scripts
 // ==/UserScript==
+// goes well with steam://controllerconfig/413080/2807431315
 
 function backward() {
 	document
