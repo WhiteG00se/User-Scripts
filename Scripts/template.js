@@ -4,8 +4,9 @@
 // @version      1.1
 // @author       Tobias
 // @match        https://TEMPLATE.de/TEMPLATE/TEMPLATE.jspa*
-// @license      GNU
-// @namespace    https://github.com/GreyGooseVX/Greasy-Fork-Scripts
+// @license      GPL-3.0-only
+// @copyright    Tobias Lauppe
+// @namespace    https://github.com/GreyGooseVX/User-Scripts
 // ==/UserScript==
  
 console.log("TEMPLATE")

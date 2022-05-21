@@ -4,8 +4,9 @@
 // @version      1.0
 // @author       Tobias
 // @match        stockanalysis.com/stocks/*/financials*
-// @license      GNU
-// @namespace    https://github.com/GreyGooseVX/Greasy-Fork-Scripts
+// @license      GPL-3.0-only
+// @copyright    Tobias Lauppe
+// @namespace    https://github.com/GreyGooseVX/User-Scripts
 // ==/UserScript==
  
 document.getElementsByClassName("overflow-x-auto border border-gray-300")[0].className=""
