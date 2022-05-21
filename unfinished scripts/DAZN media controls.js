@@ -2,10 +2,9 @@
 // @name         DAZN media controls
 // @description  allows forward/backwards with arrow keys and pause with space
 // @version      1.0
-// @author       Tobias
+// @author       Tobias L
 // @match        *.dazn.com/*
 // @license      GPL-3.0-only
-// @copyright    Tobias Lauppe
 // @namespace    https://github.com/GreyGooseVX/User-Scripts
 // ==/UserScript==
 // goes well with this steam controller profile:
