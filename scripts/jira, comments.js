@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         jira, comments dev build
 // @description  load all comments by default, add buttons to collapse or expand them
-// @version      1.0
+// @version      1.1
 // @author       Tobias L
 // @include      */jira.*/browse*
 // @include      */jira/*/browse*
@@ -13,7 +13,6 @@
 loadAllComments()
 loadUI()
 reloadUI()
-commentOrder()
 
 function loadUI() {
 	if (document.querySelector("#extensionUI") == null) {
@@ -49,9 +48,4 @@ function loadAllComments() {
 	const clickHere = document.getElementsByClassName("collapsed-comments")[0]
 	if (clickHere == null) return
 	clickHere.click()
-}
-function commentOrder() {
-	let orderButton = document.querySelector("#activitymodule .issue-activity-sort-link .aui-iconfont-up")
-	if (orderButton == null) return
-	orderButton.click()
 }

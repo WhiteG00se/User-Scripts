@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         jira, comments dev build
 // @description  load all comments by default, add buttons to collapse or expand them
-// @version      1.0
+// @version      1.1
 // @author       Tobias L
 // @include      */jira.*/browse*
 // @include      */jira/*/browse*
