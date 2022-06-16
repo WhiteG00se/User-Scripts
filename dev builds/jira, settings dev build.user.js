@@ -6,6 +6,7 @@
 // @include */jira.*
 // @include */jira/*
 // @include *.jira.*
+// @run-at document-start
 // @license GPL-3.0-only
 // @namespace https://github.com/GreyGooseVX/User-Scripts
 // ==/UserScript==
@@ -39,10 +40,12 @@ function getPagetype() {
 	return pagetype
 }
 function modalCode() {
-	loadModalButton()
-	loadModal()
-	localStorageToModal()
-	submitModal()
+	document.addEventListener("DOMContentLoaded", function () {
+		loadModalButton()
+		loadModal()
+		localStorageToModal()
+		submitModal()
+	})
 	function loadModalButton() {
 		//load ex_modalButton into nav bar + add event listener to open the modal
 		let ex_modalButton = `
@@ -69,7 +72,8 @@ function modalCode() {
 				<table>
 					<tr>
 						<td>
-							refresh the page <abbr title='does not refresh while the "Create Issue" dialoge is open'> every x
+							refresh the page <abbr
+								title='does not refresh while "Create Issue" dialoge or this extension menu is open'> every x
 								minutes</abbr> (0 to disable)
 						</td>
 						<td>
@@ -106,7 +110,7 @@ function modalCode() {
 				<table>
 					<tr>
 						<td>
-							load all comments after page load</abbr>
+							load all comments after loading the page
 						</td>
 						<td>
 							<input type="checkbox" class="ex_modalCheckbox" id="ex_shouldLoadAllCommentsAfterPageLoad">
@@ -114,7 +118,7 @@ function modalCode() {
 					</tr>
 					<tr>
 						<td>
-							collapse all comments after page load
+							collapse all comments after loading the page
 						</td>
 						<td>
 							<input type="checkbox" class="ex_modalCheckbox" id="ex_shouldCollapseCommentsAfterPageLoad">
@@ -142,11 +146,14 @@ function modalCode() {
 					</tr>
 					<tr>
 						<td>
-							collapse modules after page load
+							collapse modules after loading the page, <abbr
+								title='example (case sensitive): Description, Attachments, Issue Links, Test Coverage, Agile'>
+								help?</abbr>
 						</td>
 						<td>
 							<!-- jira causes problems with type="text" -->
-							<input type="definitely_not_text" class="ex_modalValue" id="ex_whatModulesToCollapseDuringPageLoad">
+							<input type="definitely_not_text" class="ex_modalValue"
+								id="ex_whatModulesToCollapseDuringPageLoad">
 						</td>
 					</tr>
 				</table>
@@ -180,6 +187,7 @@ function modalCode() {
 			document.querySelector("#ex_modal").style.display = "none"
 			document.querySelector(".aui-blanket").setAttribute("hidden", "")
 		})
+		if (getDebugMode()) console.log("ex_modal was loaded")
 	}
 	function localStorageToModal() {
 		//load values from localStorage to modal
@@ -213,8 +221,15 @@ function modalCode() {
 	}
 }
 function dashboardPageCode() {
-	removeSidebar()
-	refreshDashboard()
+	//add event listener when readystate is interactive
+	document.addEventListener("readystatechange", function () {
+		if (document.readyState == "interactive") {
+			removeSidebar()
+		}
+	})
+	document.addEventListener("DOMContentLoaded", function () {
+		refreshDashboard()
+	})
 	function removeSidebar() {
 		if (localStorage.getItem("ex_removeSidebar") != "true") return //check localStorage
 		document.querySelector("#dashboard .dashboard-tabs").remove()
@@ -224,11 +239,14 @@ function dashboardPageCode() {
 		const interval = parseInt(localStorage.getItem("ex_refreshDashboardInterval"))
 		if (interval == null || interval == "0") return // check localStorage
 		setInterval(function () {
-			// check if there is an element with id "create-issue-dialog"
-			if (document.querySelector("#create-issue-dialog") == null) {
+			// check if there is an element with id "create-issue-dialog" AND if "ex_modal" is visible
+			if (
+				document.querySelector("#create-issue-dialog") == null &&
+				document.querySelector("#ex_modal").style.display == "none"
+			) {
 				location.reload()
 			} else {
-				if (getDebugMode()) console.log('did not refresh because "Create Issue" dialog is open')
+				if (getDebugMode()) console.log('did not refresh because "Create Issue" or "ex_modal" dialog is open')
 			}
 		}, interval * 1000)
 		// log to console if debug mode is enabled
@@ -236,12 +254,14 @@ function dashboardPageCode() {
 	}
 }
 function ticketPageCode() {
-	loadAllCommentsAfterPageLoad()
-	commentOrder()
-	loadExpandCollapseButtons()
-	keepRestoringUI()
-	collapseCommentsAfterPageLoad()
-	collapseModules()
+	document.addEventListener("DOMContentLoaded", function () {
+		loadAllCommentsAfterPageLoad()
+		commentOrder()
+		loadExpandCollapseButtons()
+		keepRestoringUI()
+		collapseCommentsAfterPageLoad()
+		collapseModules()
+	})
 	function loadAllCommentsAfterPageLoad() {
 		if (localStorage.getItem("ex_shouldLoadAllCommentsAfterPageLoad") != "true") return //check localStorage
 		const clickHere = document.getElementsByClassName("collapsed-comments")[0]
