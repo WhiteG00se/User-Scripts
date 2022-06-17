@@ -236,7 +236,7 @@ function dashboardPageCode() {
 		if (getDebugMode()) console.log("Sidebar removed")
 	}
 	function refreshDashboard() {
-		const interval = parseInt(localStorage.getItem("ex_refreshDashboardInterval"))
+		const interval = localStorage.getItem("ex_refreshDashboardInterval")
 		if (interval == null || interval == "0") return // check localStorage
 		setInterval(function () {
 			// check if there is an element with id "create-issue-dialog" AND if "ex_modal" is visible
