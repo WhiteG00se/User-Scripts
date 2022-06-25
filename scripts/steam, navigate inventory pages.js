@@ -3,7 +3,7 @@
 // @description  adds event listeners to the arrows keys to navigate inventory pages
 // @version      1.0
 // @author       Tobias L
-// @includes     https://steamcommunity.com/id/*/inventory*
+// @include     https://steamcommunity.com/id/*/inventory*
 // @license      GPL-3.0-only
 // @namespace    https://github.com/GreyGooseVX/User-Scripts
 // ==/UserScript==
