@@ -1,0 +1,7 @@
+- "comments" tab after logging work
+- answer in pop-up window
+- add imagine thumbnail button 
+- track last read / news
+- jira software / AJAX
+- Enter/Submit in input field doesn't work
+- Deploy newest version
