@@ -1,14 +1,14 @@
 // ==UserScript==
-// @name jira, settings dev build
-// @description needs work
-// @version 1.0
-// @author Tobias L
-// @include */jira.*
-// @include */jira/*
-// @include *.jira.*
-// @run-at document-start
-// @license GPL-3.0-only
-// @namespace https://github.com/GreyGooseVX/User-Scripts
+// @name 			jira, quality of life extension
+// @description 	out of the box only adds a button right side of the nav bar, which opens the settings to turn on/off features
+// @version 		1.0
+// @author 			Tobias L
+// @include 		*/jira.*
+// @include 		*/jira/*
+// @include			*.jira.*
+// @run-at 			document-start
+// @license 		GPL-3.0-only
+// @namespace		https://github.com/GreyGooseVX/User-Scripts
 // ==/UserScript==
 
 runCodeForPagetype(getPageType())
@@ -64,10 +64,10 @@ function modalCode() {
 <span id="ex_modal" style="display: none">
 	<section class="aui-layer aui-dialog2 aui-dialog2-large" open="" style="z-index: 3000;" tabindex="-1">
 		<header class="aui-dialog2-header">
-			<h2 class="aui-dialog2-header-main">extention settings</h2>
+			<h2 class="aui-dialog2-header-main">quality of life extension</h2>
 		</header>
 		<div class="aui-dialog2-content">
-			<form>
+			<form id="ex_form">
 				<h2>dashboard settings</h2>
 				<table>
 					<tr>
@@ -147,7 +147,7 @@ function modalCode() {
 					<tr>
 						<td>
 							collapse modules after loading the page, <abbr
-								title='example (case sensitive): Description, Attachments, Issue Links, Test Coverage, Agile'>
+								title="example (case sensitive): 'Description, Attachments, Issue Links, Test Coverage, Agile'">
 								help?</abbr>
 						</td>
 						<td>
@@ -217,6 +217,10 @@ function modalCode() {
 			})
 			//reload page
 			location.reload()
+		})
+		//disable default form submit behavior
+		document.querySelector('#ex_form').addEventListener('submit', function (event) {
+			event.preventDefault()
 		})
 	}
 }

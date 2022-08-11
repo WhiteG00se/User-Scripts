@@ -1,7 +1,11 @@
+##jira, quality of life extension##
+
+ideas for new features:
 - "comments" tab after logging work
 - answer in pop-up window
 - add imagine thumbnail button 
 - track last read / news
-- jira software / AJAX
-- Enter/Submit in input field doesn't work
-- Deploy newest version
+
+known problems:
+- doesn't work well with loading new page via AJAX instead of actual page reload
+- cursor doesn't change when hovering over modal button
