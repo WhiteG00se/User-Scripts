@@ -2,7 +2,7 @@
 // @name 			jira, quality of life extension
 // @description 	out of the box only adds a button right side of the nav bar, which opens the settings to turn on/off features
 // @description 	currently doesn't fully support loading a ticket page via AJAX instead of a full page load
-// @version 		4.1
+// @version 		4.2
 // @author 			Tobias L
 // @include 		*/jira.*
 // @include 		*/jira/*
@@ -15,7 +15,8 @@
 runCodeForPagetype(getPageType())
 
 function runCodeForPagetype(pageType) {
-	modalCode()
+	if (pageType != 'plugin') modalCode()
+	else return
 	switch (pageType) {
 		case 'dashboard':
 			dashboardPageCode()
@@ -29,14 +30,13 @@ function getPageType() {
 	let URL = window.location.href
 	let pageType = 'default'
 	if (getDebugMode()) console.log(URL)
-	//check if URL contains "/dashboard.jspa" (not case sensitive)
 	if (URL.toLowerCase().includes('/dashboard.jspa')) {
 		pageType = 'dashboard'
-	}
-	//check if URL contains "/browse" (not case sensitive)
-	if (URL.toLowerCase().includes('/browse')) {
+	} else if (URL.toLowerCase().includes('/browse')) {
 		pageType = 'ticket'
-	}
+	} else if (URL.toLowerCase().includes('/plugins')) {
+		pageType = 'plugin'
+	} // in this case we don't want to run any more code
 	if (getDebugMode()) console.log(`the page type is: ${pageType}`)
 	return pageType
 }
@@ -182,13 +182,15 @@ function modalCode() {
 </span>
 <div aria-hidden="true" class="aui-blanket" tabindex="0" hidden=""></div>
 `
-		document.querySelector('body').insertAdjacentHTML('beforeend', modal)
-		//add event listener to cancel button
-		document.querySelector('#ex_modal-cancel-button').addEventListener('click', function () {
-			document.querySelector('#ex_modal').style.display = 'none'
-			document.querySelector('.aui-blanket').setAttribute('hidden', '')
-		})
-		if (getDebugMode()) console.log('ex_modal was loaded')
+		try {
+			document.querySelector('body').insertAdjacentHTML('beforeend', modal)
+			//add event listener to cancel button
+			document.querySelector('#ex_modal-cancel-button').addEventListener('click', function () {
+				document.querySelector('#ex_modal').style.display = 'none'
+				document.querySelector('.aui-blanket').setAttribute('hidden', '')
+			})
+			if (getDebugMode()) console.log('ex_modal was loaded')
+		} catch (e) {}
 	}
 	function localStorageToModal() {
 		//load values from localStorage to modal
