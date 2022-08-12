@@ -1,15 +1,15 @@
 // ==UserScript==
-// @name 			jira, quality of life extension
-// @description 	out of the box only adds a button right side of the nav bar, which opens the settings to turn on/off features
-// @description 	currently doesn't fully support loading a ticket page via AJAX instead of a full page load
-// @version 		4.2
-// @author 			Tobias L
-// @include 		*/jira.*
-// @include 		*/jira/*
-// @include			*.jira.*
-// @run-at 			document-start
-// @license 		GPL-3.0-only
-// @namespace		https://github.com/GreyGooseVX/User-Scripts
+// @name          jira, quality of life extension
+// @description   out of the box only adds a button right side of the nav bar, which opens the settings to turn on/off features
+// @description   currently doesn't fully support loading a ticket page via AJAX instead of a full page load
+// @version       4.3
+// @author        Tobias L
+// @include       */jira.*
+// @include       */jira/*
+// @include       *.jira.*
+// @run-at        document-start
+// @license       GPL-3.0-only
+// @namespace     https://github.com/GreyGooseVX/User-Scripts
 // ==/UserScript==
 
 runCodeForPagetype(getPageType())
