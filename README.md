@@ -1,4 +1,4 @@
-install a [user script manager](https://greasyfork.org/en) (I recommend Violentmonkey)
+install a [user script manager](https://greasyfork.org/en) (I personallt use Violentmonkey)
 
 
 install [my scripts](https://greasyfork.org/en/users/879760-greygoosevx)
