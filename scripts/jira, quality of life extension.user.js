@@ -36,7 +36,7 @@ function getPageType() {
 		pageType = 'ticket'
 	} else if (URL.toLowerCase().includes('/plugins')) {
 		pageType = 'plugin'
-	} // in this case we don't want to run any more code
+	}
 	if (getDebugMode()) console.log(`the page type is: ${pageType}`)
 	return pageType
 }
@@ -193,7 +193,6 @@ function modalCode() {
 		} catch (e) {}
 	}
 	function localStorageToModal() {
-		//load values from localStorage to modal
 		//load values for class ex_modalCheckbox
 		document.querySelectorAll('.ex_modalCheckbox').forEach(function (element) {
 			if (localStorage.getItem(element.id) == 'true') {
@@ -218,8 +217,7 @@ function modalCode() {
 			document.querySelectorAll('.ex_modalValue').forEach(function (element) {
 				localStorage.setItem(element.id, element.value)
 			})
-			//reload page
-			location.reload()
+			location.reload() //reload page to apply changes
 		})
 		//disable default form submit behavior
 		document.querySelector('#ex_form').addEventListener('submit', function (event) {
