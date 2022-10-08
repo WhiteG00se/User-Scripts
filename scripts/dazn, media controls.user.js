@@ -5,7 +5,7 @@
 // @author       Tobias L
 // @include      *.dazn.com/*
 // @license      GPL-3.0-only
-// @namespace    https://github.com/GreyGooseVX/User-Scripts
+// @namespace    https://github.com/WhiteG00se/User-Scripts
 // ==/UserScript==
 // goes well with this steam controller profile:
 // steam://controllerconfig/413080/2807431315

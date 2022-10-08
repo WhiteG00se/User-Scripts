@@ -5,7 +5,7 @@
 // @author       Tobias L
 // @include     https://steamcommunity.com/id/*/inventory*
 // @license      GPL-3.0-only
-// @namespace    https://github.com/GreyGooseVX/User-Scripts
+// @namespace    https://github.com/WhiteG00se/User-Scripts
 // ==/UserScript==
 
 setTimeout(function () {
