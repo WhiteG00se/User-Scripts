@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         steam, navigate inventory pages
 // @description  adds event listeners to the arrows keys to navigate inventory pages
-// @version      1.0
+// @version      1.1
 // @author       Tobias L
 // @include     https://steamcommunity.com/id/*/inventory*
 // @license      GPL-3.0-only

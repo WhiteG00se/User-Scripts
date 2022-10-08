@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         chess.com, wasd controls
 // @description  allows user to go back and forth using the keys a and d, w and s are commented out
-// @version      1.0
+// @version      1.1
 // @author       Tobias L
 // @include      *.chess.com/*
 // @license      GPL-3.0-only
@@ -9,7 +9,6 @@
 // ==/UserScript==
 
 function simulateKeyPress(event, key) {
-	event.preventDefault()
 	let keyPress = new KeyboardEvent('keydown', {
 		key: key,
 		code: key,

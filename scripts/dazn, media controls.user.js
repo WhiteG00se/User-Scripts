@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         dazn, media controls
 // @description  allows forward/backwards with arrow keys and pause with space
-// @version      1.0
+// @version      1.1
 // @author       Tobias L
 // @include      *.dazn.com/*
 // @license      GPL-3.0-only

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         stockanalysis, improve layout
 // @description  improves the layout of some tables to show more columns at once
-// @version      1.0
+// @version      1.1
 // @author       Tobias L
 // @match        stockanalysis.com/stocks/*/financials*
 // @license      GPL-3.0-only
