@@ -8,7 +8,7 @@
 // @namespace    https://github.com/WhiteG00se/User-Scripts
 // ==/UserScript==
 
-function simulateKeyPress(event, key) {
+function simulateKeyPress(key) {
 	let keyPress = new KeyboardEvent('keydown', {
 		key: key,
 		code: key,
@@ -22,16 +22,16 @@ function simulateKeyPress(event, key) {
 document.body.addEventListener('keydown', function (event) {
 	switch (event.key) {
 		// case 'w':
-		// 	simulateKeyPress(event, 'ArrowUp')
+		// 	simulateKeyPress('ArrowUp')
 		// 	break
 		case 'a':
-			simulateKeyPress(event, 'ArrowLeft')
+			simulateKeyPress('ArrowLeft')
 			break
 		// case 's':
-		// 	simulateKeyPress(event, 'ArrowDown')
+		// 	simulateKeyPress('ArrowDown')
 		// 	break
 		case 'd':
-			simulateKeyPress(event, 'ArrowRight')
+			simulateKeyPress('ArrowRight')
 			break
 	}
 })
