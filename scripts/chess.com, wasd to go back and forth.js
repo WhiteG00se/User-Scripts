@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         chess.com, wasd controls
 // @description  allows user to go back and forth using the keys a and d, w and s are commented out
-// @version      1.1
+// @version      1.2
 // @author       Tobias L
 // @include      *.chess.com/*
 // @license      GPL-3.0-only
