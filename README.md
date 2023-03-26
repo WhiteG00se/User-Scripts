@@ -5,5 +5,5 @@ install a [user script manager](https://greasyfork.org/en) (I personallt use Vio
 
 install [my scripts](https://greasyfork.org/en/users/879760-greygoosevx)
 
-The Jira User Script was discontinued and replaced by:
+The Jira User Script was discontinued and replaced by:<br>
 https://chrome.google.com/webstore/detail/jira-quality-of-life-exte/folmfdcdedbbppdmdjmahilddgdggego
