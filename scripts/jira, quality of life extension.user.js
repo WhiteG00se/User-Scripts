@@ -7,6 +7,7 @@
 // @include       */jira.*
 // @include       */jira/*
 // @include       *.jira.*
+// @include       *alm.cx.all-for-one.com*
 // @run-at        document-start
 // @license       GPL-3.0-only
 // @namespace     https://github.com/WhiteG00se/User-Scripts
