@@ -15,33 +15,33 @@
 runCodeForPagetype(getPageType())
 
 function runCodeForPagetype(pageType) {
-	if (pageType != 'plugin') modalCode()
+	if (pageType != "plugin") modalCode()
 	else return
 	switch (pageType) {
-		case 'dashboard':
+		case "dashboard":
 			dashboardPageCode()
 			break
-		case 'ticket':
+		case "ticket":
 			ticketPageCode()
 			break
 	}
 }
 function getPageType() {
 	let URL = window.location.href
-	let pageType = 'default'
+	let pageType = "default"
 	if (getDebugMode()) console.log(URL)
-	if (URL.toLowerCase().includes('/dashboard.jspa')) {
-		pageType = 'dashboard'
-	} else if (URL.toLowerCase().includes('/browse')) {
-		pageType = 'ticket'
-	} else if (URL.toLowerCase().includes('/plugins')) {
-		pageType = 'plugin'
+	if (URL.toLowerCase().includes("/dashboard.jspa")) {
+		pageType = "dashboard"
+	} else if (URL.toLowerCase().includes("/browse")) {
+		pageType = "ticket"
+	} else if (URL.toLowerCase().includes("/plugins")) {
+		pageType = "plugin"
 	}
 	if (getDebugMode()) console.log(`the page type is: ${pageType}`)
 	return pageType
 }
 function modalCode() {
-	document.addEventListener('DOMContentLoaded', function () {
+	document.addEventListener("DOMContentLoaded", function () {
 		loadModalButton()
 		loadModal()
 		localStorageToModal()
@@ -53,10 +53,10 @@ function modalCode() {
 <button id="ex_modalButton">
 	<h3>&#9889</h3>
 </button>`
-		document.querySelector('#quicksearch-menu').insertAdjacentHTML('afterend', ex_modalButton)
-		document.querySelector('#ex_modalButton').addEventListener('click', function () {
-			document.querySelector('#ex_modal').style.display = 'block'
-			document.querySelector('.aui-blanket').removeAttribute('hidden')
+		document.querySelector("#quicksearch-menu").insertAdjacentHTML("afterend", ex_modalButton)
+		document.querySelector("#ex_modalButton").addEventListener("click", function () {
+			document.querySelector("#ex_modal").style.display = "block"
+			document.querySelector(".aui-blanket").removeAttribute("hidden")
 		})
 	}
 	function loadModal() {
@@ -183,72 +183,72 @@ function modalCode() {
 <div aria-hidden="true" class="aui-blanket" tabindex="0" hidden=""></div>
 `
 		try {
-			document.querySelector('body').insertAdjacentHTML('beforeend', modal)
+			document.querySelector("body").insertAdjacentHTML("beforeend", modal)
 			//add event listener to cancel button
-			document.querySelector('#ex_modal-cancel-button').addEventListener('click', function () {
-				document.querySelector('#ex_modal').style.display = 'none'
-				document.querySelector('.aui-blanket').setAttribute('hidden', '')
+			document.querySelector("#ex_modal-cancel-button").addEventListener("click", function () {
+				document.querySelector("#ex_modal").style.display = "none"
+				document.querySelector(".aui-blanket").setAttribute("hidden", "")
 			})
-			if (getDebugMode()) console.log('ex_modal was loaded')
+			if (getDebugMode()) console.log("ex_modal was loaded")
 		} catch (e) {}
 	}
 	function localStorageToModal() {
 		//load values for class ex_modalCheckbox
-		document.querySelectorAll('.ex_modalCheckbox').forEach(function (element) {
-			if (localStorage.getItem(element.id) == 'true') {
+		document.querySelectorAll(".ex_modalCheckbox").forEach(function (element) {
+			if (localStorage.getItem(element.id) == "true") {
 				element.checked = true
 			} else {
 				element.checked = false
 			}
 		})
 		//load values for class ex_modalValue
-		document.querySelectorAll('.ex_modalValue').forEach(function (element) {
+		document.querySelectorAll(".ex_modalValue").forEach(function (element) {
 			element.value = localStorage.getItem(element.id)
 		})
 	}
 	function submitModal() {
 		//add event listener to submit button
-		document.querySelector('#ex_modal-submit-button').addEventListener('click', function () {
+		document.querySelector("#ex_modal-submit-button").addEventListener("click", function () {
 			//set all values with class "ex_modalCheckbox" to localStorage
-			document.querySelectorAll('.ex_modalCheckbox').forEach(function (element) {
+			document.querySelectorAll(".ex_modalCheckbox").forEach(function (element) {
 				localStorage.setItem(element.id, element.checked)
 			})
 			//set all values with class "ex_modalValue" to localStorage
-			document.querySelectorAll('.ex_modalValue').forEach(function (element) {
+			document.querySelectorAll(".ex_modalValue").forEach(function (element) {
 				localStorage.setItem(element.id, element.value)
 			})
 			location.reload() //reload page to apply changes
 		})
 		//disable default form submit behavior
-		document.querySelector('#ex_form').addEventListener('submit', function (event) {
+		document.querySelector("#ex_form").addEventListener("submit", function (event) {
 			event.preventDefault()
 		})
 	}
 }
 function dashboardPageCode() {
 	//add event listener when readystate is interactive
-	document.addEventListener('readystatechange', function () {
-		if (document.readyState == 'interactive') {
+	document.addEventListener("readystatechange", function () {
+		if (document.readyState == "interactive") {
 			removeSidebar()
 		}
 	})
-	document.addEventListener('DOMContentLoaded', function () {
+	document.addEventListener("DOMContentLoaded", function () {
 		refreshDashboard()
 	})
 	function removeSidebar() {
-		if (localStorage.getItem('ex_removeSidebar') != 'true') return //check localStorage
-		document.querySelector('#dashboard .dashboard-tabs').remove()
-		if (getDebugMode()) console.log('Sidebar removed')
+		if (localStorage.getItem("ex_removeSidebar") != "true") return //check localStorage
+		document.querySelector("#dashboard .dashboard-tabs").remove()
+		if (getDebugMode()) console.log("Sidebar removed")
 	}
 	function refreshDashboard() {
-		const interval = localStorage.getItem('ex_refreshDashboardInterval')
-		if (interval == null || interval == '0') return // check localStorage
+		const interval = localStorage.getItem("ex_refreshDashboardInterval")
+		if (interval == null || interval == "0") return // check localStorage
 		setInterval(function () {
 			// check if there is an element with id "create-issue-dialog" AND if "ex_modal" is visible AND if pageType is "dashboard"
 			if (
-				document.querySelector('#create-issue-dialog') == null &&
-				document.querySelector('#ex_modal').style.display == 'none' &&
-				getPageType() == 'dashboard'
+				document.querySelector("#create-issue-dialog") == null &&
+				document.querySelector("#ex_modal").style.display == "none" &&
+				getPageType() == "dashboard"
 			) {
 				location.reload()
 			} else {
@@ -256,11 +256,11 @@ function dashboardPageCode() {
 			}
 		}, interval * 1000)
 		// log to console if debug mode is enabled
-		if (getDebugMode()) console.log('Refreshing dashboard every ' + interval + ' seconds')
+		if (getDebugMode()) console.log("Refreshing dashboard every " + interval + " seconds")
 	}
 }
 function ticketPageCode() {
-	document.addEventListener('DOMContentLoaded', function () {
+	document.addEventListener("DOMContentLoaded", function () {
 		loadAllCommentsAfterPageLoad()
 		commentOrder()
 		loadExpandCollapseButtons()
@@ -269,80 +269,82 @@ function ticketPageCode() {
 		collapseModules()
 	})
 	function loadAllCommentsAfterPageLoad() {
-		if (localStorage.getItem('ex_shouldLoadAllCommentsAfterPageLoad') != 'true') return //check localStorage
-		const clickHere = document.getElementsByClassName('collapsed-comments')[0]
+		if (localStorage.getItem("ex_shouldLoadAllCommentsAfterPageLoad") != "true") return //check localStorage
+		const clickHere = document.getElementsByClassName("collapsed-comments")[0]
 		if (clickHere == null) return //guard clause
 		clickHere.click()
 	}
 	function commentOrder() {
 		let ex_orderButton
-		switch (localStorage.getItem('ex_selectCommentOrder')) {
-			case 'newestFirst':
-				ex_orderButton = document.querySelector('#activitymodule .issue-activity-sort-link .aui-iconfont-up')
+		switch (localStorage.getItem("ex_selectCommentOrder")) {
+			case "newestFirst":
+				ex_orderButton = document.querySelector("#activitymodule .issue-activity-sort-link .aui-iconfont-up")
 				if (ex_orderButton == null) return //guard clause
 				ex_orderButton.click()
 				break
-			case 'oldestFirst':
-				ex_orderButton = document.querySelector('#activitymodule .issue-activity-sort-link .aui-iconfont-down')
+			case "oldestFirst":
+				ex_orderButton = document.querySelector("#activitymodule .issue-activity-sort-link .aui-iconfont-down")
 				if (ex_orderButton == null) return //guard clause
 				ex_orderButton.click()
 				break
 		}
 	}
 	function loadExpandCollapseButtons() {
-		if (localStorage.getItem('ex_showExpandCollapseButtons') != 'true') return //check localStorage
-		if (document.querySelector('#ex_expandCollapseButtons') != null) return //guard clause
+		if (localStorage.getItem("ex_showExpandCollapseButtons") != "true") return //check localStorage
+		if (document.querySelector("#ex_expandCollapseButtons") != null) return //guard clause
 		let ex_expandCollapseButtons = `
 <span id="ex_expandCollapseButtons">
 	<button id="expandComments">expand all</button>
 	<button id="collapseComments">collapse all</button>
 </span>
 `
-		document.querySelector('#activitymodule_heading h4').insertAdjacentHTML('afterend', ex_expandCollapseButtons)
-		document.querySelector('#collapseComments').addEventListener('click', collapseComments)
-		document.querySelector('#expandComments').addEventListener('click', expandComments)
+		document
+			.querySelector("#activitymodule_heading h4")
+			.insertAdjacentHTML("afterend", ex_expandCollapseButtons)
+		document.querySelector("#collapseComments").addEventListener("click", collapseComments)
+		document.querySelector("#expandComments").addEventListener("click", expandComments)
 	}
 	function keepRestoringUI() {
-		const monitoredNode = document.querySelector('body')
+		const monitoredNode = document.querySelector("body")
 		const ex_mutationObserver = new MutationObserver((entries) => {
 			if (getDebugMode()) {
-				console.log('childList of body changed ')
+				console.log("childList of body changed ")
 			}
 			loadExpandCollapseButtons()
 		})
 		ex_mutationObserver.observe(monitoredNode, { childList: true, subtree: true })
 	}
 	function collapseCommentsAfterPageLoad() {
-		if (localStorage.getItem('ex_shouldCollapseCommentsAfterPageLoad') != 'true') return //check localStorage
+		if (localStorage.getItem("ex_shouldCollapseCommentsAfterPageLoad") != "true") return //check localStorage
 		//prevent collapsing comments before they are loaded if ex_shouldLoadAllCommentsAfterPageLoad is enabled
-		if (localStorage.getItem('ex_shouldLoadAllCommentsAfterPageLoad') == 'true') {
+		if (localStorage.getItem("ex_shouldLoadAllCommentsAfterPageLoad") == "true") {
 			setTimeout(collapseComments, 200)
 		} else {
 			collapseComments()
 		}
 	}
 	function collapseComments() {
-		document.querySelectorAll('.twixi-block').forEach(function (currentValue) {
-			currentValue.classList.remove('expanded')
-			currentValue.classList.add('collapsed')
+		document.querySelectorAll(".twixi-block").forEach(function (currentValue) {
+			currentValue.classList.remove("expanded")
+			currentValue.classList.add("collapsed")
 		})
 	}
 	function expandComments() {
-		document.querySelectorAll('.twixi-block').forEach(function (currentValue) {
-			currentValue.classList.remove('collapsed')
-			currentValue.classList.add('expanded')
+		document.querySelectorAll(".twixi-block").forEach(function (currentValue) {
+			currentValue.classList.remove("collapsed")
+			currentValue.classList.add("expanded")
 		})
 	}
 	function collapseModules() {
 		//split input into an array and trim all of the elements
-		let input = localStorage.getItem('ex_whatModulesToCollapseDuringPageLoad')
-		if (input == null || input == '') return //check localStorage
-		let modulesToCollapse = input.split(',')
+		let input = localStorage.getItem("ex_whatModulesToCollapseDuringPageLoad")
+		if (input == null || input == "") return //check localStorage
+		let modulesToCollapse = input.split(",")
 		modulesToCollapse.forEach(function (element, index) {
 			modulesToCollapse[index] = element.trim()
 		})
 		if (getDebugMode()) {
-			console.log('modules to collapse:')
+			console.log("modules to collapse:")
 			console.log(modulesToCollapse)
 		}
 		// forEach modulesToCollapse find element with button[aria-label=currentValue]
@@ -352,28 +354,29 @@ function ticketPageCode() {
 			if (moduleButton.length == 0) return //guard clause
 			//change aria-expanded of moduleButton to false
 			moduleButton.forEach(function (currentValue) {
-				currentValue.setAttribute('aria-expanded', 'false')
+				currentValue.setAttribute("aria-expanded", "false")
 
 				//check parents of moduleButton until you find moduleContainer with class "module"
 
 				let moduleContainer = currentValue.parentElement
 				//while moduleButton doesn't have either of these classes "collapsed" or "expanded" check next parent
-				while (!moduleContainer.classList.contains('module')) {
-					if (moduleContainer.tagName == 'BODY') {
-						if (getDebugMode()) console.warn('returning out of while loop because moduleContainer is the html body tag')
+				while (!moduleContainer.classList.contains("module")) {
+					if (moduleContainer.tagName == "BODY") {
+						if (getDebugMode())
+							console.warn("returning out of while loop because moduleContainer is the html body tag")
 						return
 					} else moduleContainer = moduleContainer.parentElement
 				}
 				// remove class "expanded" and add "collapsed" from moduleContainer
-				moduleContainer.classList.remove('expanded')
-				moduleContainer.classList.add('collapsed')
+				moduleContainer.classList.remove("expanded")
+				moduleContainer.classList.add("collapsed")
 				if (getDebugMode()) console.log(`${currentValue} moduleButton & moduleContainer found, module collapsed`)
 			})
 		})
 	}
 }
 function getDebugMode() {
-	if (localStorage.getItem('ex_debugMode') == 'true') {
+	if (localStorage.getItem("ex_debugMode") == "true") {
 		return true
 	} else {
 		return false
