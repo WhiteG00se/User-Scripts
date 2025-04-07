@@ -299,9 +299,7 @@ function ticketPageCode() {
 	<button id="collapseComments">collapse all</button>
 </span>
 `
-		document
-			.querySelector("#activitymodule_heading h4")
-			.insertAdjacentHTML("afterend", ex_expandCollapseButtons)
+		document.querySelector("#activitymodule_heading").insertAdjacentHTML("afterend", ex_expandCollapseButtons)
 		document.querySelector("#collapseComments").addEventListener("click", collapseComments)
 		document.querySelector("#expandComments").addEventListener("click", expandComments)
 	}
